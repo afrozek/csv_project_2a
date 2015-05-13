@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  p Welcome to #{title}  
+  #chart
+     script.
+
+      var chart = c3.generate({
+      data: {columns: [['data1', 30, 200, 100, 400, 150, 250, 50, 100, 250]]},
+      axis: {x: {type: 'category',categories: ['cat1', 'cat2', 'cat3', 'cat4', 'cat5', 'cat6', 'cat7', 'cat8', 'cat9']}}
+      });
+   form#uploadForm(enctype='multipart/form-data', action='', method='post')
+      input(type='file', name='filename')
+      input(type='submit', value='Upload CSV', name='submit')
+    form(enctype='multipart/form-data', action='tuition_display_graph', method='post')
+      input(type='submit', value='Display Graph', name='submit')
+   a(href="/")  Back to Home
+

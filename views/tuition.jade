@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  #chart
+     script.
+      var stats = !{JSON.stringify(data)};
+
+      var chart = c3.generate({
+      data: {columns:stats[stats.length-1].tuitionData},
+      axis: {x: {type: 'category',categories: ['2011-12', '2012-13', '2013-14']}}
+      });
+
+   a(href="/")  Back to Home
+

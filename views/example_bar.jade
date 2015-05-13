@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  #chart
+     script.
+      var data = {enrollment:[ ['c1', 30, ], ['c2', 70, ], ['c3', 20, ], ['c4', 40, ], ['c5', 20, ], ['c6', 44, ], ['c7', 20, ], ['c8', 60, ], ['c9', 20, ], ['c10', 70, ] ]};
+
+
+     
+
+      var chart = c3.generate({
+      data: {columns: data.enrollment,type: 'bar'},
+      bar: {width: {ratio: .8  /*this makes bar width 50% of length between ticks*/}}
+      });
+   a(href="/")  Back to Home
+

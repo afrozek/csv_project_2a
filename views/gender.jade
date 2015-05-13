@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1 #{data[data.length-1].collegeName} Gender Stats
+  p Welcome to #{title}  
+  #chart
+     script.
+      var stats = !{JSON.stringify(data)};
+
+      var chart = c3.generate({
+      data: {columns:stats[stats.length-1].genderData,type: 'pie'},
+      bar: {width: {ratio: .8  /*this makes bar width 50% of length between ticks*/}}
+      });
+
+   a(href="/gender")  Back to Upload
+

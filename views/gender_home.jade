@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  p Welcome to #{title}  
+  #chart
+     script.
+
+      var chart = c3.generate({
+      data: {columns:[["Male",50],["Female",50]],type: 'pie'},
+      bar: {width: {ratio: .8  /*this makes bar width 50% of length between ticks*/}}
+      });
+   form#uploadForm(enctype='multipart/form-data', action='', method='post')
+      input(type='file', name='filename')
+      input(type='submit', value='Upload CSV', name='submit')
+    form(enctype='multipart/form-data', action='gender_display_graph', method='post')
+      input(type='submit', value='Display Graph', name='submit')
+   a(href="/")  Back to Home
+
